@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UndirLaFlota.MainPage"
+             BackgroundColor="#1a1a2e">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Cabecera -->
+        <VerticalStackLayout Grid.Row="0" Padding="20,10">
+            <Label Text="Hundir la Flota" 
+                   FontSize="32" 
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <Label x:Name="ScoreLabel" 
+                       Text="Puntuación: 0" 
+                       TextColor="#4ecca3"/>
+                <Label x:Name="ShipsLabel" 
+                       Text="Barcos por colocar: 5" 
+                       TextColor="#4ecca3"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <!-- Contenedor de tableros -->
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Tablero del jugador -->
+            <VerticalStackLayout Grid.Column="0" Spacing="10">
+                <Label Text="Tu Flota" 
+                       TextColor="White" 
+                       FontSize="20" 
+                       HorizontalOptions="Center"/>
+                <ScrollView>
+                    <Grid x:Name="TableroJugadorGrid"
+                          RowSpacing="2"
+                          ColumnSpacing="2"
+                          HorizontalOptions="Center"
+                          VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ScrollView>
+            </VerticalStackLayout>
+
+            <!-- Tablero de la IA -->
+            <VerticalStackLayout Grid.Column="1" Spacing="10">
+                <Label Text="Flota Enemiga" 
+                       TextColor="White" 
+                       FontSize="20" 
+                       HorizontalOptions="Center"/>
+                <ScrollView>
+                    <Grid x:Name="TableroIAGrid"
+                          RowSpacing="2"
+                          ColumnSpacing="2"
+                          HorizontalOptions="Center"
+                          VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ScrollView>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Controles inferiores -->
+        <VerticalStackLayout Grid.Row="2" 
+                            Spacing="10" 
+                            Padding="20" 
+                            HorizontalOptions="Center">
+            <HorizontalStackLayout Spacing="10">
+                <Button x:Name="RotarBarcoBtn"
+                        Text="Rotar Barco" 
+                        BackgroundColor="#4ecca3"
+                        TextColor="White"
+                        Clicked="RotarBarco_Clicked"/>
+                <Button x:Name="IniciarPartidaBtn"
+                        Text="Iniciar Partida" 
+                        BackgroundColor="#4ecca3"
+                        TextColor="White"
+                        IsEnabled="False"
+                        Clicked="IniciarPartida_Clicked"/>
+                <Button Text="Nueva Partida" 
+                        BackgroundColor="#4ecca3"
+                        TextColor="White"
+                        Clicked="NuevaPartida_Clicked"/>
+                <Button Text="Historial" 
+                        BackgroundColor="#4ecca3"
+                        TextColor="White"
+                        Clicked="Historial_Clicked"/>
+            </HorizontalStackLayout>
+            <Label x:Name="EstadoJuegoLabel"
+                   Text="Coloca tus barcos en el tablero de la izquierda"
+                   TextColor="#4ecca3"
+                   HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
