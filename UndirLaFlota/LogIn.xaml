@@ -119,12 +119,7 @@
                         </Button.Shadow>
                     </Button>
 
-                    <!-- Botón secundario -->
-                    <Button Text="⚙️ Configuración"
-                            FontSize="16" TextColor="#FFD700"
-                            BackgroundColor="Transparent" 
-                            BorderColor="#FFD700" BorderWidth="2"
-                            CornerRadius="25" HeightRequest="50" />
+                   
                 </StackLayout>
 
                 <!-- Elementos decorativos -->
